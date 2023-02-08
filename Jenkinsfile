@@ -12,9 +12,9 @@ pipeline {
         }
         stage('Ejecución de tareas') {
             steps {
-                echo "Ejecutor: ${executor}"
-                echo "Motivo: ${motivo}"
-                echo "Correo notificación: ${correo}"
+                echo "Ejecutor: '${executor}'" 
+                echo "Motivo: '${motivo}'"
+                echo "Correo notificación: '${correo}'"
             }
         }
     }
