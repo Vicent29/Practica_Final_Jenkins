@@ -29,7 +29,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                env.StatusTest = sh(script:'npm run test',returnStatus:true) 
+                script{
+                    env.StatusTest = sh(script:'npm run test',returnStatus:true) 
+                }
             }
         }
 
