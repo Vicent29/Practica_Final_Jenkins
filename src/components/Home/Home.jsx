@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 
 
 export default function HomeComponent() {
-  const [show, setshow] = useState(null);
 
   return (
     <>
