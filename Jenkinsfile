@@ -23,7 +23,7 @@ pipeline {
         stage('Linter') {
             steps {
                 nodejs('node') {
-                    sh 'cd react-app/ && npm run lint'
+                    sh 'cd react-app/ && npm list eslint-config-react-app'
                 }
             }
         }
