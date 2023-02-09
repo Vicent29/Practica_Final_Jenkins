@@ -29,13 +29,19 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm run test'
+                env.StatusTest = sh(script:'npm run test',returnStatus:true) 
             }
         }
 
         stage('Build') {
             steps {
                 sh 'npm run build'
+            }
+        }
+
+        stage('Update_Readme') {
+            steps {
+                sh "node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'"
             }
         }
     }
