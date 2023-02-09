@@ -24,7 +24,7 @@ pipeline {
             steps {
                 nodejs('node') {
                     sh 'cd react-app/'
-                    sh 'npm run lint'
+                    sh 'pwd'
                 }
             }
         }
