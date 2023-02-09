@@ -13,5 +13,12 @@ pipeline {
                 }
             }
         }
+        stage('Linter') {
+            steps {
+                nodejs('node') {
+                    sh 'npx eslint ./react-app/ .'
+                }
+            }
+        }
     }
 }
