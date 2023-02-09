@@ -23,7 +23,7 @@ pipeline {
         stage('Linter') {
             steps {
                 nodejs('node') {
-                    sh 'npx eslint .'
+                    sh 'pwd &&npx eslint .'
                 }
             }
         }
