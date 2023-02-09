@@ -13,6 +13,13 @@ pipeline {
                 }
             }
         }
+        stage('install') {
+            steps {
+                nodejs('node') {
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Linter') {
             steps {
                 nodejs('node') {
