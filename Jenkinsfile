@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'node'
+    }
     stages {
         stage('Petición de datos') {
             steps {
@@ -15,16 +18,12 @@ pipeline {
         }
         stage('install') {
             steps {
-                nodejs('node') {
-                    sh 'npm install'
-                } 
+                sh 'npm install'
             }
         }
         stage('Linter') {
             steps {
-                nodejs('node') {
-                    sh 'npm run lint'
-                }
+                sh 'npm run lint'
             }
         }
     }

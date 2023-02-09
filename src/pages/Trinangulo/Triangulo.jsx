@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../components/Home/home.css";
+const AreaTriangulo = require("../../test/CalcTriangulo")
 
 function TriangleAreaCalculator() {
   const [base, setBase] = useState("");
@@ -8,7 +9,7 @@ function TriangleAreaCalculator() {
 
   const formSubmitTri = (e) => {
     e.preventDefault();
-    setArea((base * height) / 2);
+    setArea(AreaTriangulo(base,height));
   };
 
   return (
