@@ -16,14 +16,14 @@ pipeline {
         stage('install') {
             steps {
                 nodejs('node') {
-                    sh 'npm install'
-                }
+                    sh 'cd react-app/ && npm install'
+                } 
             }
         }
         stage('Linter') {
             steps {
                 nodejs('node') {
-                    sh 'cd react-app/ && npm install eslint-config-react-app && npm run lint'
+                    sh 'npx eslint .'
                 }
             }
         }

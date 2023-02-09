@@ -22,8 +22,6 @@ const Triangulo = React.lazy(() => import("./pages/Trinangulo/Triangulo"))
 const Circulo = React.lazy(() => import("./pages/Circulo/Circulo"))
 const Cuadrado = React.lazy(() => import("./pages/Cuadrado/Cuadrado"))
 
-const paco = ""
-
 function App() {
   return (
     <div className="App">
