@@ -23,8 +23,7 @@ pipeline {
         stage('Linter') {
             steps {
                 nodejs('node') {
-                    sh 'cd react-app/ && pwd '
-                    sh 'pwd'
+                    sh 'cd react-app/ && npm run lint'
                 }
             }
         }
