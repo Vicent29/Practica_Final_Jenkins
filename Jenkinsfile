@@ -3,7 +3,7 @@ pipeline {
     tools {
         nodejs 'node'
     }
-    enviroments {
+    environment {
         email_github = credentials('email_github')
         username_github = credentials('username_github')
     }
