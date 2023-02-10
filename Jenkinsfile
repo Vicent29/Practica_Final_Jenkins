@@ -46,5 +46,11 @@ pipeline {
                 sh "node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'"
             }
         }
+
+        stage('Push_Changes') {
+            steps {
+                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}'"
+            }
+        }
     }
 }
