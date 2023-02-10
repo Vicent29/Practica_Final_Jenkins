@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
 
     const alocation = useLocation()
-    const links = ["HOME", "TRIANGULO", "CIRCULO", "CUADRADO"]
+    const links = ["HOME", "TRIANGULO", "CUADRADO", "CIRCULO"]
 
     const changeCN = (item) => {
         return alocation.pathname.replace('/', '') === item ? "menu-link is-active" : "menu-link";

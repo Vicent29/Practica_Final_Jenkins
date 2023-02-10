@@ -21,10 +21,10 @@ export default function HomeComponent() {
             </p>
             <div className="btns">
                 <Link to="/triangulo">
-                    <button type="button" className="btn btn-outline-success m-2">Triangulo</button>
+                    <button type="button" className="btn btn-outline-warning m-2">Triangulo</button>
                 </Link>
                 <Link to="/cuadrado">
-                    <button type="button" className="btn btn-outline-warning m-2">Cuadrado</button> 
+                    <button type="button" className="btn btn-outline-success m-2">Cuadrado</button> 
                 </Link>
                 <Link to="/circulo">
                     <button type="button" className="btn btn-outline-info m-2">Circulo</button> 

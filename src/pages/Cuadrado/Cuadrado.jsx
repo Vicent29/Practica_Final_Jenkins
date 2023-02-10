@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "../../components/Home/home.css";
-const AreaTriangulo = require("../../test/CalcTriangulo")
+const AreaCuadrado = require("../../test/CalcCuadrado")
 
 function TriangleAreaCalculator() {
-  const [base, setBase] = useState("");
-  const [height, setHeight] = useState("");
+  const [ladoA, setBaseA] = useState("");
+  const [ladoB, setBaseB] = useState("");
   const [area, setArea] = useState(null);
 
   const formSubmitTri = (e) => {
     e.preventDefault();
-    setArea(AreaTriangulo(base,height));
+    setArea(AreaCuadrado(ladoA,ladoB));
   };
 
   return (
@@ -19,18 +19,18 @@ function TriangleAreaCalculator() {
     
         <form className="cart" onSubmit={formSubmitTri}>
           <div className="form-group">
-            <label for="exampleInputEmail1">Base de triangulo:</label>
-            <input type="number" className="form-control" value={base} onChange={(e) => setBase(e.target.value)}/>
+            <label for="exampleInputEmail1">LadoA del cuadraado:</label>
+            <input type="number" className="form-control" value={ladoA} onChange={(e) => setBaseA(e.target.value)}/>
           </div>
           <div className="form-group mt-3">
-            <label for="exampleInputPassword1">Altura de triangulo:</label>
-            <input type="number" className="form-control" value={height} onChange={(e) => setHeight(e.target.value)}
+            <label for="exampleInputPassword1">LadoB del cuadraado:</label>
+            <input type="number" className="form-control" value={ladoB} onChange={(e) => setBaseB(e.target.value)}
               />
           </div>
           <button type="submit" className="btn btn-primary mt-3">Calcular Área</button>
         </form>
         {area !== null &&
-        <div class="triangle">
+        <div class="square">
             <p>{area}</p>
         </div>
         }

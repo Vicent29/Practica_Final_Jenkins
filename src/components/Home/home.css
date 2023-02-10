@@ -43,6 +43,7 @@ h2 {
     border-radius: 10px;
 }
 
+/* Triangulo */
 .triangle {
     margin-top: 2%;
     display: flex;
@@ -51,7 +52,7 @@ h2 {
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 100px solid rgb(225, 192, 175);
+    border-bottom: 100px solid rgb(229, 233, 103);
     clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   }
   .triangle p{
@@ -59,4 +60,51 @@ h2 {
     background-color: rgb(32, 180, 180) !important;
     font-size: large;
     font-weight: bold;
+    color: black;
   }
+
+  /* Cuadrado */
+  .square {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(15, 196, 45);
+    border: 1px solid white;
+  }
+  .square p{
+    margin-top: 20px;
+    background-color: rgb(219, 226, 226) !important;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* Circulo */
+  .circle {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(48, 152, 232);
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+  .circle p {
+    margin-top: 20px;
+    background-color: rgb(219, 226, 226) !important;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+  }
+
+
+
