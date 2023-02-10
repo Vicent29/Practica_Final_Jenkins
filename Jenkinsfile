@@ -53,7 +53,7 @@ pipeline {
 
         stage('Push_Changes') {
             steps {
-                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' '${email_github}' '${username_github}'"
+                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github}"
             }
         }
     }
