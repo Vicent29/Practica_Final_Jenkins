@@ -7,6 +7,8 @@ pipeline {
         email_github = credentials('email_github')
         username_github = credentials('username_github')
         token_gitHub = credentials('Token_GitHub_Jenkins')
+        token_vercel = credentials('Token_vercel')
+        
     }
     stages {
         stage('Petición de datos') {
@@ -58,11 +60,12 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Vercel') {
-        //     steps {
-        //         sh 'npm i -g vercel'
-        //         sh "sh jenkinsScripts/deploy_vercel.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}"
-        //     }
-        // }
+        stage('Deploy to Vercel') {
+            steps {
+                sh 'npm i -g vercel'
+                sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}'"
+            }
+        }
     }
 }
+
