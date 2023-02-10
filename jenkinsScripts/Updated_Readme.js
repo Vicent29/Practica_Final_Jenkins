@@ -14,9 +14,9 @@ fs.readFile(readmePath, 'utf8', function(err, data) {
     if (err) throw err;
     let README = data.search('test-succes-green') !== -1 ? data.replace('test-succes-green', Badge) : data.replace('test-failure-red', Badge)
     fs.writeFile(readmePath, README, function(err) {
-        console.log(README);
         if (err) throw err;
         console.log("Badge añadido correctamente");
+        console.log(README);
         process.exit(0)
     });
 });
