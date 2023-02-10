@@ -6,6 +6,7 @@ pipeline {
     environment {
         email_github = credentials('email_github')
         username_github = credentials('username_github')
+        token_gitHub = credentials('Token_GitHub_Jenkins')
     }
     stages {
         stage('Petición de datos') {
@@ -53,7 +54,7 @@ pipeline {
 
         stage('Push_Changes') {
             steps {
-                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github}"
+                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}"
             }
         }
     }
