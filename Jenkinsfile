@@ -65,7 +65,7 @@ pipeline {
         stage('Push_Changes') {
             steps {
                 script{
-                    env.StatusPush_Changes = sh(script:"jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}", returnStatus:true)
+                    env.StatusPush_Changes = sh(script:"jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' '${email_github}' '${username_github}' '${token_gitHub}'", returnStatus:true)
                 }
             }
         }
