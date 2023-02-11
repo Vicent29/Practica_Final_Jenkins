@@ -7,4 +7,3 @@ git add .
 git commit -m "Pipeline ejecutada por $1. Motivo: $2"
 git remote set-url origin $5
 git push origin HEAD:ci_jenkins
-exit 0

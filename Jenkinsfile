@@ -70,14 +70,14 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Vercel') {
-        //     steps {
-        //         sh 'npm i -g vercel'
-        //         script{
-        //             sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusTest}' '${env.StatusTest}' '${env.StatusUpdate_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'"
-        //         }
-        //     }
-        // }
+        stage('Deploy to Vercel') {
+            steps {
+                sh 'npm i -g vercel'
+                script{
+                    sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusTest}' '${env.StatusTest}' '${env.StatusUpdate_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'"
+                }
+            }
+        }
     }
 }
 
