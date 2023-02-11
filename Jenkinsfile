@@ -25,12 +25,12 @@ pipeline {
         }
         stage('install') {
             steps {
-                sh 'npm install'
+                env.StatusInstall = sh(script:'npm install',returnStatus:true) 
             }
         }
         stage('Linter') {
             steps {
-                sh 'npm run lint'
+                env.StatusLinter = sh(script:'npm run lint',returnStatus:true) 
             }
         }
 
@@ -44,26 +44,30 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                env.StatusUpdate_Build = sh(script:"npm run build", returnStatus:true)
             }
         }
 
         stage('Update_Readme') {
             steps {
-                sh "node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'"
+                env.StatusUpdate_Readme = sh(script:"node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'", returnStatus:true)
             }
         }
 
         stage('Push_Changes') {
             steps {
-                sh "sh jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}"
+                env.StatusPush_Changes = sh(script:"jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}", returnStatus:true)  
             }
         }
 
         stage('Deploy to Vercel') {
             steps {
                 sh 'npm i -g vercel'
-                sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}'"
+                script{
+                    if(env.StatusTest == 0 && env.StatusLinter == 0 && env.StatusTest == 0 && env.StatusUpdate_Build == 0 && env.StatusUpdate_Readme == 0 && env.StatusPush_Changes == 0){
+                        sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}'"
+                    }
+                }
             }
         }
     }
