@@ -74,7 +74,6 @@ pipeline {
             steps {
                 sh 'npm i -g vercel'
                 script{
-                    chmod +x jenkinsScripts/deploy_vercel.sh
                     sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusTest}' '${env.StatusTest}' '${env.StatusUpdate_Build}' '${env.StatusUpdate_Readme}' '0'"
                 }
             }
