@@ -74,9 +74,7 @@ pipeline {
             steps {
                 sh 'npm i -g vercel'
                 script{
-                    if(env.StatusTest == 0 && env.StatusLinter == 0 && env.StatusTest == 0 && env.StatusUpdate_Build == 0 && env.StatusUpdate_Readme == 0 && env.StatusPush_Changes == 0){
-                        sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}'"
-                    }
+                    sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusTest}' '${env.StatusTest}' '${env.StatusUpdate_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'"
                 }
             }
         }
