@@ -25,12 +25,16 @@ pipeline {
         }
         stage('install') {
             steps {
-                env.StatusInstall = sh(script:'npm install',returnStatus:true) 
+                script{
+                    env.StatusInstall = sh(script:'npm install',returnStatus:true) 
+                }
             }
         }
         stage('Linter') {
             steps {
-                env.StatusLinter = sh(script:'npm run lint',returnStatus:true) 
+                script{
+                    env.StatusLinter = sh(script:'npm run lint',returnStatus:true) 
+                }
             }
         }
 
@@ -44,19 +48,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                env.StatusUpdate_Build = sh(script:"npm run build", returnStatus:true)
+                script{
+                    env.StatusUpdate_Build = sh(script:"npm run build", returnStatus:true)
+                }
             }
         }
 
         stage('Update_Readme') {
             steps {
-                env.StatusUpdate_Readme = sh(script:"node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'", returnStatus:true)
+                script{
+                    env.StatusUpdate_Readme = sh(script:"node jenkinsScripts/Updated_Readme.js '${env.StatusTest}'", returnStatus:true)
+                }
             }
         }
 
         stage('Push_Changes') {
             steps {
-                env.StatusPush_Changes = sh(script:"jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}", returnStatus:true)  
+                script{
+                    env.StatusPush_Changes = sh(script:"jenkinsScripts/push_changes.sh '${env.executor}' '${env.motivo}' ${email_github} ${username_github} ${token_gitHub}", returnStatus:true)
+                }
             }
         }
 
