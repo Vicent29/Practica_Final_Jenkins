@@ -6,6 +6,6 @@ else
   echo s2 $3
   echo s2 $4
   echo s2 $5
-  echo s2 $6
+#   echo s2 $6
   exit 1
 fi
