@@ -70,6 +70,7 @@
     ![Img-5](./assets/13_foto.png)
 
 - Finalmente, el resultado de la vista será la siguiente:
+
     ![Img-5](./assets/15_foto.png)
     ![Img-5](./assets/14_foto.png)
 
