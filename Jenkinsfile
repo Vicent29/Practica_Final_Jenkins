@@ -8,6 +8,9 @@ pipeline {
         username_github = credentials('username_github')
         token_gitHub = credentials('Token_GitHub_Jenkins')
         token_vercel = credentials('Token_vercel')
+        api_key_mailgun = credentials('api_key_mailgun')
+        domain_mailgun = credentials('domain_mailgun')
+
         
     }
     stages {
@@ -49,7 +52,7 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                    env.StatusUpdate_Build = sh(script:"npm run build", returnStatus:true)
+                    env.Status_Build = sh(script:"npm run build", returnStatus:true)
                 }
             }
         }
@@ -75,7 +78,15 @@ pipeline {
             steps {
                 sh 'npm i -g vercel'
                 script{
-                    sh "sh jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusTest}' '${env.StatusTest}' '${env.StatusUpdate_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'"
+                    env.StatusDeploy_Vercel = sh(script:sh "jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusInstall}' '${env.StatusLinter}' '${env.StatusTest}' '${env.Status_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'", returnStatus:true)
+                }
+            }
+        }
+
+        stage('Notificación') {
+            steps {
+                script{
+                    sh "sh jenkinsScripts/send_notification.sh ${api_key_mailgun}' '${domain_mailgun}' '${env.correo}' '${env.StatusLinter}' '${env.StatusTest}' '${env.StatusUpdate_Readme}' '${env.StatusDeploy_Vercel}'"
                 }
             }
         }
