@@ -10,8 +10,6 @@ pipeline {
         token_vercel = credentials('Token_vercel')
         api_key_mailgun = credentials('api_key_mailgun')
         domain_mailgun = credentials('domain_mailgun')
-
-        
     }
     stages {
         stage('Petición de datos') {

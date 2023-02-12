@@ -3,8 +3,8 @@ var API_KEY_MAILGUN = process.argv[1]
 var DOMAIN_MAILGUN = process.argv[2]
 var DESTINATARIO = process.argv[3]
 
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
+import formData from 'form-data';
+import Mailgun from 'mailgun.js';
 const form_mailgun = new Mailgun(formData);
 const send_message = form_mailgun.client({ username: 'api', key: API_KEY_MAILGUN });
 
