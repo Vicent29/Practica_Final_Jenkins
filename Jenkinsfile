@@ -78,7 +78,7 @@ pipeline {
             steps {
                 sh 'npm i -g vercel'
                 script{
-                    env.StatusDeploy_Vercel = sh(script:sh "jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusInstall}' '${env.StatusLinter}' '${env.StatusTest}' '${env.Status_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'", returnStatus:true)
+                    env.StatusDeploy_Vercel = sh(script:"jenkinsScripts/deploy_vercel.sh '${token_vercel}' '${env.StatusInstall}' '${env.StatusLinter}' '${env.StatusTest}' '${env.Status_Build}' '${env.StatusUpdate_Readme}' '${env.StatusPush_Changes}'", returnStatus:true)
                 }
             }
         }
