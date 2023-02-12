@@ -6,7 +6,7 @@ var DESTINATARIO = process.argv[3]
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const form_mailgun = new Mailgun(formData);
-const send_message = form_mailgun.client({ username: 'api', key: API_KEY_MAILGUN });
+const send_message = form_mailgun.client({ username: 'api', key: API_KEY_MAILGUN, url:"https://api.eu.mailgun.net"});
 
 //Variables de estado de los jobs
 let result_Linter_stage = process.argv[4] == 0 ? "success": "failure";
