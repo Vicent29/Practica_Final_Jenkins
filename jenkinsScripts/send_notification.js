@@ -1,21 +1,14 @@
-// Variables mailgun crear formulario
-var API_KEY_MAILGUN = process.argv[3]
-var DOMAIN_MAILGUN = process.argv[4]
-var DESTINATARIO = process.argv[5]
-
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
-const form_mailgun = new Mailgun(formData);
-const send_message = form_mailgun.client({ username: 'api', key: API_KEY_MAILGUN});
+var API_KEY_MAILGUN = process.argv[2]
+var DOMAIN_MAILGUN = process.argv[3]
+var DESTINATARIO = process.argv[4]
 
 //Variables de estado de los jobs
-let result_Linter_stage = process.argv[6] == 0 ? "success": "failure";
-let resultado_Test_stage = process.argv[7] == 0 ? "success": "failure";
-let result_Update_readme_stage = process.argv[8] == 0 ? "success": "failure";
-let result_Deploy_to_Vercel_stage = process.argv[9] == 0 ? "success": "failure";
+let result_Linter_stage = process.argv[5] == 0 ? "success": "failure";
+let resultado_Test_stage = process.argv[6] == 0 ? "success": "failure";
+let result_Update_readme_stage = process.argv[7] == 0 ? "success": "failure";
+let result_Deploy_to_Vercel_stage = process.argv[8] == 0 ? "success": "failure";
 
 
-let asunto= "Resultado de la pipeline ejecutada"
 
 const body = `
     <div>
@@ -31,16 +24,19 @@ const body = `
                 Result Update Readme Stage: ${result_Update_readme_stage}
             </li>
             <li>
-                Result Update Readme Stage:: ${result_Deploy_to_Vercel_stage}
+                Result Update Readme Stage: ${result_Deploy_to_Vercel_stage}
             </li>
         </ul>
     </div>`;
 
-send_message.messages.create(DOMAIN_MAILGUN, {
-    from: "esteve.ferre.vicent@gmail.com",
-    to: [DESTINATARIO],
-    subject: asunto,
-    html: body
-})
-    .then(msg => console.log(msg))
-    .catch(err => console.error(err));
+const mailgun = require("mailgun-js");
+const mg = mailgun({apiKey: API_KEY_MAILGUN, domain: DOMAIN_MAILGUN});
+const data = {
+       from: 'esteve.ferre.vicent@gmail.com',
+       to: DESTINATARIO,
+       subject: 'Resultado de la pipeline ejecutada',
+       html: body
+};
+mg.messages().send(data, function (error, body) {
+       console.log(body);
+});
