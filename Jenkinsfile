@@ -86,7 +86,7 @@ pipeline {
         stage('Notificación') {
             steps {
                 script{
-                    sh "sh jenkinsScripts/send_notification.sh '${api_key_mailgun}' '${domain_mailgun}' '${env.correo}' '${env.StatusLinter}' '${env.StatusTest}' '${env.StatusUpdate_Readme}' '${env.StatusDeploy_Vercel}'"
+                    sh "sh jenkinsScripts/send_notification.js '${api_key_mailgun}' '${domain_mailgun}' '${env.correo}' '${env.StatusLinter}' '${env.StatusTest}' '${env.StatusUpdate_Readme}' '${env.StatusDeploy_Vercel}'"
                 }
             }
         }
