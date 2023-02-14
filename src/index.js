@@ -4,6 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+window.addEventListener('blur', () => {
+  console.log("Me VOY");
+  document.title = 'No te vayass';
+});
+
+window.addEventListener('focus', () => {
+  console.log("Estoy DENTRO");
+  document.title = 'Jenkinsfile';
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
