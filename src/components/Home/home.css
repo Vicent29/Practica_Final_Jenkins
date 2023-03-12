@@ -1,0 +1,110 @@
+.home_style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    color: white;
+}
+
+h2 {
+    text-decoration: underline;
+    color: white;
+}
+
+.home_style p{
+    width: 30%;
+    text-align: justify;
+    background-color: rgb(152, 149, 149);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.home_style .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.style_plig{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+    color: rgb(85, 97, 96);
+}
+
+.cart{
+    width: 20%;
+    text-align: left;
+    background-color: rgb(237, 239, 221);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+/* Triangulo */
+.triangle {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgb(229, 233, 103);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+  .triangle p{
+    margin-top: 50px;
+    background-color: rgb(32, 180, 180) !important;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* Cuadrado */
+  .square {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(15, 196, 45);
+    border: 1px solid white;
+  }
+  .square p{
+    margin-top: 20px;
+    background-color: rgb(219, 226, 226) !important;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+  }
+
+  /* Circulo */
+  .circle {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(48, 152, 232);
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+  .circle p {
+    margin-top: 20px;
+    background-color: rgb(219, 226, 226) !important;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+  }
+
+
+
