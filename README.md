@@ -239,7 +239,7 @@
 
     [SEND NOTIFICATION](https://github.com/Vicent29/Practica_Final_Jenkins/blob/ci_jenkins/jenkinsScripts/send_notification.js)
 
-- Finalmente, comprobaremos que el Stage está funcionando correctamente y que recibo el email con el resultado de los Stages anteriores:
+- Finalmente, comprobaremos que el Stage está funcionando correctamente y que recibo el email con el resultado de los Stages realizados:
 
     ![60_foto](./assets/60_foto.png)
     ![61_foto](./assets/61_foto.png)
